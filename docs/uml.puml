@@ -1,0 +1,47 @@
+@startuml
+
+class Matrix {
+    - data
+    + rows
+    + cols
+    + __init__(data)
+    + add(other)
+    + subtract(other)
+    + multiply(other)
+    + transpose()
+    + determinant()
+    + __str__()
+}
+
+class MatrixCalculator {
+    + add(first, second)
+    + subtract(first, second)
+    + multiply(first, second)
+    + transpose(matrix)
+    + determinant(matrix)
+}
+
+class MatrixCalculatorApp {
+    - root
+    - matrix_a
+    - matrix_b
+    - result
+    + __init__(root)
+    + create_widgets()
+    + parse_matrix(text)
+    + get_matrices()
+    + show_result(matrix)
+    + show_message(message)
+    + add()
+    + subtract()
+    + multiply()
+    + determinant()
+    + transpose()
+    + clear()
+}
+
+MatrixCalculator ..> Matrix : использует
+MatrixCalculatorApp ..> MatrixCalculator : использует
+MatrixCalculatorApp ..> Matrix : создаёт
+
+@enduml
